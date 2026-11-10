@@ -1,0 +1,9 @@
+.botao{
+    background-color: rgb(98, 33, 158);
+    border-radius: 5px;
+    border: solid 2px rgb(red, green, blue)
+}
+
+.botao:hover{
+    background-color: azure;
+}
