@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Botao from "../../components/botao/Botao";
 import "./Home.css";
+import API_URL from "../../services/api";
 
 function Home() {
     const [pessoas, setPessoas] = useState([]);
@@ -10,7 +11,7 @@ function Home() {
     // READ (Listar)
     const buscarPessoas = async () => {
         try {
-            const response = await fetch("http://localhost:3000/pessoa");
+            const response = await fetch(`${API_URL}/pessoas`);
             const data = await response.json();
             setPessoas(data);
         } catch (error) {
@@ -30,7 +31,7 @@ function Home() {
         try {
             if (editandoId) {
                 // Update
-                await fetch(`http://localhost:3000/pessoa/${editandoId}`, {
+                await fetch(`${API_URL}/pessoas/${editandoId}`, { // <-- Corrigido para /pessoas
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ pes_nome: nome }),
@@ -38,7 +39,7 @@ function Home() {
                 setEditandoId(null);
             } else {
                 // Create
-                await fetch("http://localhost:3000/pessoa", {
+                await fetch(`${API_URL}/pessoas`, { // <-- Corrigido para /pessoas
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ pes_nome: nome }),
@@ -55,7 +56,7 @@ function Home() {
     const excluirPessoa = async (id) => {
         if (!window.confirm("Tem certeza que deseja excluir?")) return;
         try {
-            await fetch(`http://localhost:3000/pessoa/${id}`, {
+            await fetch(`${API_URL}/pessoas/${id}`, { // <-- Corrigido para /pessoas
                 method: "DELETE",
             });
             buscarPessoas();

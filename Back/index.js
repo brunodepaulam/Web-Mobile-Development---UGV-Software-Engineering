@@ -10,7 +10,7 @@ app.get('/', (req, res) => { res.send('Olá mundo !'); })
 const pool = require('./db');
 app.use(express.json());
 const pessoaRoutes = require('./routes/pessoaRoutes');
-app.use('/pessoa', pessoaRoutes);
+app.use('/pessoas', pessoaRoutes);
 
 const cargoRoutes = require('./routes/cargoRoutes');
 app.use('/cargo', cargoRoutes);
