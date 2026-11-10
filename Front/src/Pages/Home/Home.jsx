@@ -77,7 +77,19 @@ function Home() {
     };
 
     return (
-        <main style={{ padding: "20px" }}>
+        <main style={{ 
+            display: "flex", 
+            flexDirection: "column", 
+            alignItems: "center", 
+            justifyContent: "center", 
+            minHeight: "100vh", 
+            textAlign: "center",
+            width: "50%",
+            margin: "0 auto",
+            padding: "20px",
+            borderRadius: "10px"
+            }}>
+                
             <h2>Cadastro de Pessoas</h2>
             
             {/* Formulário CREATE / UPDATE */}
@@ -100,7 +112,7 @@ function Home() {
             </form>
 
             {/* READ (Listagem) */}
-            <ul style={{ listStyle: "none", padding: 0 }}>
+            <ul style={{ listStyle: "none", padding: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
                 {pessoas.map((pessoa) => (
                     <li key={pessoa.id} style={{ marginBottom: "10px", borderBottom: "1px solid #ccc", paddingBottom: "5px" }}>
                         <strong>{pessoa.nome}</strong> (ID: {pessoa.id})

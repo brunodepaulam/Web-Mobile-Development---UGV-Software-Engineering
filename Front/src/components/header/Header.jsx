@@ -1,7 +1,7 @@
 function Header() {
     return (
         <header>
-            <h1>Olha, se você não me ama</h1>
+            <h1>Project N1</h1>
         </header>
     );
 }
